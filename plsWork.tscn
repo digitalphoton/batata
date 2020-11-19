@@ -30,20 +30,20 @@ animations = [ {
 "name": "flying",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "jump",
-"speed": 5.0
+"name": "falling",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "squash",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "falling",
-"speed": 10.0
+"name": "jump",
+"speed": 5.0
 } ]
 
 [node name="Node" type="Node"]
@@ -52,8 +52,9 @@ script = ExtResource( 9 )
 [node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
 position = Vector2( 528, 496 )
 script = ExtResource( 8 )
-vertical_impulse = 500
-horizontal_impulse = 500
+GRAVITY = 1000.0
+vertical_impulse = 700
+horizontal_impulse = 700
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="KinematicBody2D2"]
 

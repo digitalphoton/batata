@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Map Components/Other/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Map Components/Platforms/platform3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Enemies/walker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Map Components/Platforms/platform2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Map Components/Hazards/pit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Map Components/Other/portal.tscn" type="PackedScene" id=6]
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2880, 32 )
+
+[node name="world" type="Node"]
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 786472, 0, 0, 786473, 0, 0, 786474, 0, 0, 786475, 0, 0, 786476, 0, 0, 786477, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 852008, 0, 0, 852009, 0, 0, 852010, 0, 0, 852011, 0, 0, 852012, 0, 0, 852013, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917544, 0, 0, 917545, 0, 0, 917546, 0, 0, 917547, 0, 0, 917548, 0, 0, 917549, 0, 0, 917576, 0, 0, 917577, 0, 0, 917578, 0, 0, 917579, 0, 0, 917580, 0, 0, 917581, 0, 0, 917582, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983112, 0, 0, 983113, 0, 0, 983114, 0, 0, 983115, 0, 0, 983116, 0, 0, 983117, 0, 0, 983118, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048648, 0, 0, 1048649, 0, 0, 1048650, 0, 0, 1048651, 0, 0, 1048652, 0, 0, 1048653, 0, 0, 1048654, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441842, 0, 0, 1441843, 0, 0, 1441844, 0, 0, 1441845, 0, 0, 1441846, 0, 0, 1441847, 0, 0, 1441848, 0, 0, 1441849, 0, 0, 1441850, 0, 0, 1441851, 0, 0, 1507355, 0, 0, 1507356, 0, 0, 1507357, 0, 0, 1507358, 0, 0, 1507359, 0, 0, 1507360, 0, 0, 1507361, 0, 0, 1507362, 0, 0, 1507363, 0, 0, 1507378, 0, 0, 1507379, 0, 0, 1507380, 0, 0, 1507381, 0, 0, 1507382, 0, 0, 1507383, 0, 0, 1507384, 0, 0, 1507385, 0, 0, 1507386, 0, 0, 1507387, 0, 0, 1572891, 0, 0, 1572892, 0, 0, 1572893, 0, 0, 1572894, 0, 0, 1572895, 0, 0, 1572896, 0, 0, 1572897, 0, 0, 1572898, 0, 0, 1572899, 0, 0, 1572914, 0, 0, 1572915, 0, 0, 1572916, 0, 0, 1572917, 0, 0, 1572918, 0, 0, 1572919, 0, 0, 1572920, 0, 0, 1572921, 0, 0, 1572922, 0, 0, 1572923, 0, 0 )
+map_size = Vector2( 78, 24 )
+
+[node name="platform3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1504, 1312 )
+fragile = 0
+
+[node name="platform4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1184, 1184 )
+fragile = 0
+
+[node name="platform5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1504, 1056 )
+fragile = 0
+
+[node name="platform6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1184, 928 )
+fragile = 0
+
+[node name="enemy_w" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3488, 1376 )
+
+[node name="enemy_w2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2016, 1376 )
+
+[node name="platform7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2496, 1312 )
+fragile = 0
+
+[node name="platform8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2752, 1440 )
+fragile = 0
+
+[node name="platform9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3008, 1312 )
+fragile = 0
+
+[node name="platform10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4384, 928 )
+fragile = 0
+
+[node name="platform11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4064, 1056 )
+fragile = 0
+
+[node name="platform12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4384, 1184 )
+fragile = 0
+
+[node name="platform13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4064, 1312 )
+fragile = 0
+
+[node name="platform14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3168, 800 )
+fragile = 0
+
+[node name="destination" parent="platform14" index="0"]
+position = Vector2( 1280, 0 )
+
+[node name="platform15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1120, 800 )
+fragile = 0
+
+[node name="destination" parent="platform15" index="0"]
+position = Vector2( 1216, 0 )
+
+[node name="enemy_w3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2784, 736 )
+
+[node name="pit" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2560, 1632 )
+
+[node name="CollisionShape2D" parent="pit" index="0"]
+shape = SubResource( 1 )
+
+[node name="portal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 5088, 800 )
+level_to_path = "res://Levels/Level1_5.tscn"
+coordinates_to = Vector2( 0, 9 )
+
+[editable path="platform14"]
+
+[editable path="platform15"]
+
+[editable path="pit"]

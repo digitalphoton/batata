@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Characters/Weapons/bullet.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Player/godot.png" type="Texture" id=2]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[node name="bullet" type="KinematicBody2D" groups=[
+"bullets",
+]]
+
+input_pickable = false
+collision_layer = 0
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
+speed = 600
+
+[node name="sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="hitbox" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 15
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
+
+rect = Rect2( -10, -10, 20, 20 )
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+
+

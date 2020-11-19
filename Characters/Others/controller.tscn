@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Characters/Others/controller.gd" type="Script" id=1]
+
+
+[node name="controller" type="Node" index="0"]
+
+script = ExtResource( 1 )
+acceleration = 80
+max_speed = 400
+jump_height = 800
+gravity = 40
+max_falling_speed = 800
+
+[node name="input_disabled_timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="input_disabled_timer" to="." method="_on_input_disabled_timer_timeout"]
+
+

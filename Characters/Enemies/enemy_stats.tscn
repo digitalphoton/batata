@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Characters/Enemies/enemy_stats.gd" type="Script" id=1]
+
+
+[node name="enemy_stats" type="Node"]
+
+script = ExtResource( 1 )
+health = 2
+damage = 1
+bullet_damage = 0
+
+

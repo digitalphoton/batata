@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Interface/Menus/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="startmenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 412.0
+margin_top = 139.0
+margin_right = 612.0
+margin_bottom = 459.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 64
+
+[node name="Title" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 264.0
+margin_right = 200.0
+margin_bottom = 320.0
+custom_constants/separation = 16
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 20.0
+text = "START GAME"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 200.0
+margin_bottom = 56.0
+text = "QUIT"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

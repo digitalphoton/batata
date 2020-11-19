@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Interface/Stats/Stats.gd" type="Script" id=1]
+[ext_resource path="res://Interface/Stats/health_bar_gray.png" type="Texture" id=2]
+[ext_resource path="res://Interface/Stats/health_bar_white.png" type="Texture" id=3]
+[ext_resource path="res://Interface/Stats/health_bar_frame.png" type="Texture" id=4]
+[ext_resource path="res://Interface/Stats/health_bar_red.png" type="Texture" id=5]
+
+[node name="Stats" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPBar" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPBar_white" type="TextureProgress" parent="HPBar"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 336.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 320, 32 )
+mouse_filter = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+value = 100.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+
+[node name="HPBar_red" type="TextureProgress" parent="HPBar"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 336.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 320, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+value = 100.0
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -140.0
+margin_bottom = 44.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollectablesCounter" type="PanelContainer" parent="MarginContainer"]
+margin_top = 16.0
+margin_right = 124.0
+margin_bottom = 44.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CollectablesCounter"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 117.0
+margin_bottom = 21.0
+alignment = 1
+
+[node name="COLLECTABLES" type="Label" parent="MarginContainer/CollectablesCounter/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 14.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "COLLECTABLES:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NUMBER" type="Label" parent="MarginContainer/CollectablesCounter/HBoxContainer"]
+margin_left = 102.0
+margin_right = 110.0
+margin_bottom = 14.0
+text = "0"

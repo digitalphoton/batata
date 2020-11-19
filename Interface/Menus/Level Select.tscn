@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Interface/Menus/Level Select.gd" type="Script" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+export(String,FILE,\"*.tscn\") var level_path
+export var spawn_coordinates = Vector2()
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+export(String,FILE,\"*.tscn\") var level_path
+export var spawn_coordinates = Vector2()
+"
+
+[node name="Level Select" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 412.0
+margin_top = 200.0
+margin_right = 612.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 200, 200 )
+custom_constants/separation = 36
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "LEVEL SELECT"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 200.0
+margin_bottom = 200.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer"]
+margin_right = 200.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+
+[node name="DEBUG WORLD" type="Button" parent="CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+text = "DEBUG WORLD"
+script = SubResource( 1 )
+level_path = "res://Levels/DebugWorld.tscn"
+spawn_coordinates = Vector2( 26, 12 )
+
+[node name="LEVEL 1-1" type="Button" parent="CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 200.0
+margin_bottom = 56.0
+text = "LEVEL 1-1"
+script = SubResource( 2 )
+level_path = "res://Levels/Level1_1.tscn"
+spawn_coordinates = Vector2( 19, 3 )
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer/DEBUG WORLD" to="." method="_on_DEBUG_WORLD_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer/LEVEL 1-1" to="." method="_on_LEVEL_11_pressed"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Characters/Enemies/walker.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Player/godot.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Enemies/enemy_stats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Others/controller.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 31 )
+
+[node name="enemy_w" type="KinematicBody2D" groups=[
+"enemies",
+]]
+z_index = 1
+z_as_relative = false
+collision_layer = 2
+collision_mask = 20
+script = ExtResource( 1 )
+drop_chance = 100
+
+[node name="sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="enemy_stats" parent="." instance=ExtResource( 3 )]
+
+[node name="controller" parent="." instance=ExtResource( 4 )]
+max_speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="edge_detector" type="RayCast2D" parent="."]
+position = Vector2( 32, 0 )
+enabled = true
+collision_mask = 20

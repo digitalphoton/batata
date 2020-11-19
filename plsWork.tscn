@@ -12,10 +12,10 @@
 [ext_resource path="res://new_tileset.tres" type="TileSet" id=10]
 [ext_resource path="res://resources/dawn_gradient.PNG" type="Texture" id=11]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 500, 10 )
 
 [sub_resource type="SpriteFrames" id=3]
@@ -30,6 +30,11 @@ animations = [ {
 "name": "flying",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "squash",
@@ -39,11 +44,6 @@ animations = [ {
 "loop": true,
 "name": "falling",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
 } ]
 
 [node name="Node" type="Node"]
@@ -52,6 +52,8 @@ script = ExtResource( 9 )
 [node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
 position = Vector2( 528, 496 )
 script = ExtResource( 8 )
+vertical_impulse = 500
+horizontal_impulse = 500
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="KinematicBody2D2"]
 
@@ -66,7 +68,7 @@ scale = Vector2( 4.45488, 11.4264 )
 texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="KinematicBody2D2"]
 process_mode = 0
@@ -114,7 +116,7 @@ visible = false
 position = Vector2( 512, 558 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Old stuff/StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Old stuff/StaticBody2D"]
 scale = Vector2( 62.5015, -1.21186 )
@@ -126,7 +128,7 @@ position = Vector2( 24.647, 64.2903 )
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Old stuff/StaticBody2D2"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Old stuff/StaticBody2D2"]
 scale = Vector2( 62.5015, -1.21186 )
@@ -138,7 +140,7 @@ position = Vector2( 1001.47, 64.2903 )
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Old stuff/StaticBody2D3"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Old stuff/StaticBody2D3"]
 scale = Vector2( 62.5015, -1.21186 )
@@ -151,7 +153,7 @@ script = ExtResource( 2 )
 GRAVITY = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Old stuff/KinematicBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Old stuff/KinematicBody2D"]
 scale = Vector2( 2, 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/black.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://plsWork.gd" type="Script" id=9]
 [ext_resource path="res://new_tileset.tres" type="TileSet" id=10]
 [ext_resource path="res://resources/dawn_gradient.PNG" type="Texture" id=11]
+[ext_resource path="res://railway_swing.ogg" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -30,20 +31,20 @@ animations = [ {
 "name": "flying",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "falling",
-"speed": 10.0
+"name": "jump",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "squash",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "jump",
-"speed": 5.0
+"name": "falling",
+"speed": 10.0
 } ]
 
 [node name="Node" type="Node"]
@@ -101,6 +102,11 @@ limit_left = 0
 limit_top = -1500
 limit_right = 1024
 limit_bottom = 1000
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="KinematicBody2D2"]
+pause_mode = 2
+stream = ExtResource( 12 )
+autoplay = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 528, 496 )

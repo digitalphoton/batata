@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/black.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://plsWork.gd" type="Script" id=9]
 [ext_resource path="res://new_tileset.tres" type="TileSet" id=10]
 [ext_resource path="res://resources/dawn_gradient.PNG" type="Texture" id=11]
-[ext_resource path="res://railway_swing.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -102,10 +101,6 @@ limit_left = 0
 limit_top = -1500
 limit_right = 1024
 limit_bottom = 1000
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="KinematicBody2D2"]
-stream = ExtResource( 12 )
-autoplay = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 528, 496 )

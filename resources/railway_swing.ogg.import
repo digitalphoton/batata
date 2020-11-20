@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/railway_swing.ogg-e704939fd75300bfca5db9598ddc7c85.oggstr"
+
+[deps]
+
+source_file="res://resources/railway_swing.ogg"
+dest_files=[ "res://.import/railway_swing.ogg-e704939fd75300bfca5db9598ddc7c85.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -25,6 +25,8 @@ func _process(delta):
 		elif self.is_on_floor():
 			show_idle()
 	else:
+		vertical_impulse = 0
+		horizontal_impulse = 0
 		squashed = false
 		show_airborne()
 
@@ -39,8 +41,10 @@ func _physics_process(delta):
 			get_child(2).start()
 			flag = 2
 		if Input.is_action_pressed("up"):
-			velocity.x = 0
-			velocity.y = -vertical_impulse
+			get_child(2).start()
+			flag = 3
+#			velocity.x = 0
+#			velocity.y = -vertical_impulse
 			
 	var motion = velocity
 	move_and_slide(motion, Vector2(0, -1))
@@ -69,9 +73,12 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	if flag == 1:
-		velocity.x = -horizontal_impulse
+		velocity.x = horizontal_impulse
 		velocity.y = -vertical_impulse
 	if flag == 2:
+		velocity.x = horizontal_impulse
+		velocity.y = -vertical_impulse
+	if flag == 3:
 		velocity.x = horizontal_impulse
 		velocity.y = -vertical_impulse
 
@@ -117,6 +124,8 @@ func show_airborne():
 		get_child(get_node("Wind up").get_index()).set_visible(false)
 		get_child(get_node("Squash").get_index()).set_visible(false)
 		get_child(get_node("Airborne").get_index()).set_rotation(PI/2-atan2(-velocity.y, velocity.x))
+	if velocity.x == 1:
+		velocity.x = 0
 	
 func show_windup():
 	get_child(2).start()
@@ -134,13 +143,16 @@ func show_windup():
 	else: 
 		get_child(get_node("Wind up").get_index()).set_rotation_degrees(0)
 		if Input.is_action_pressed("up"):
+			vertical_impulse += 5
 			get_child(get_node("Wind up").get_index()).set_visible(false)
 			get_child(get_node("Squash").get_index()).set_visible(true)
-		elif Input.is_action_pressed("left"):
+		if Input.is_action_pressed("left"):
+			horizontal_impulse -= 5
 			get_child(get_node("Wind up").get_index()).set_flip_h(true)
 			get_child(get_node("Wind up").get_index()).set_visible(true)
 			get_child(get_node("Squash").get_index()).set_visible(false)
-		elif Input.is_action_pressed("right"):
+		if Input.is_action_pressed("right"):
+			horizontal_impulse += 5
 			get_child(get_node("Wind up").get_index()).set_flip_h(false)
 			get_child(get_node("Wind up").get_index()).set_visible(true)
 			get_child(get_node("Squash").get_index()).set_visible(false)

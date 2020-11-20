@@ -9,6 +9,14 @@ var velocity = Vector2()
 var flag = 0
 var squashed = false
 
+# Nodes
+onready var sound_fx = get_node("soundfx")
+
+# Sound fx files
+export(String,FILE,"*.wav") var jump_side
+export(String,FILE,"*.wav") var jump_high
+export(String,FILE,"*.wav") var collide
+
 func _ready():
 	get_child(2).set_one_shot(true)
 
@@ -21,6 +29,8 @@ func _process(delta):
 		if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up"):
 			show_windup()
 		elif squashed == false and (self.is_on_wall() or self.is_on_floor() or self.is_on_ceiling()):
+			sound_fx.stream = load(collide)
+			sound_fx.play(0)
 			show_squashed()
 		elif self.is_on_floor():
 			show_idle()
@@ -39,6 +49,8 @@ func _physics_process(delta):
 			get_child(2).start()
 			flag = 2
 		if Input.is_action_pressed("up"):
+			sound_fx.stream = load(jump_high)
+			sound_fx.play(0)
 			velocity.x = 0
 			velocity.y = -vertical_impulse
 			
@@ -69,9 +81,13 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	if flag == 1:
+		sound_fx.stream = load(jump_side)
+		sound_fx.play(0)
 		velocity.x = -horizontal_impulse
 		velocity.y = -vertical_impulse
 	if flag == 2:
+		sound_fx.stream = load(jump_side)
+		sound_fx.play(0)
 		velocity.x = horizontal_impulse
 		velocity.y = -vertical_impulse
 
